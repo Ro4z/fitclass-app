@@ -10,19 +10,34 @@ import {WIDTH} from '@constants/dimensions';
 
 function FitclassContentsMenu() {
   return (
-    <TouchableOpacity onPress={null}>
-      <ImageBackground
-        style={styles.backgroundimage1}
-        source={require('@assets/image/profile_thumbnail_1.jpg')}
-        resizeMode="cover">
-        <View style={styles.backgroundcover}>
-          <Text
-            style={[styles.maintitle, {textAlign: 'right', marginRight: 5}]}>
-            FITCLASS 캘린더
-          </Text>
-        </View>
-      </ImageBackground>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity onPress={null}>
+        <ImageBackground
+          style={styles.backgroundimage1}
+          source={require('@assets/image/profile_thumbnail_2.jpg')}
+          resizeMode="cover">
+          <View style={styles.backgroundcover}>
+            <Text
+              style={[styles.maintitle, {textAlign: 'right', marginRight: 5}]}>
+              혼자 운동하기: FITCLASS 자세교정
+            </Text>
+          </View>
+        </ImageBackground>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={null}>
+        <ImageBackground
+          style={styles.backgroundimage1}
+          source={require('@assets/image/profile_thumbnail_3.jpg')}
+          resizeMode="cover">
+          <View style={styles.backgroundcover}>
+            <Text
+              style={[styles.maintitle, {textAlign: 'right', marginRight: 5}]}>
+              같이 운동하기: FITCLASS ROOM
+            </Text>
+          </View>
+        </ImageBackground>
+      </TouchableOpacity>
+    </View>
   );
 }
 
@@ -44,7 +59,7 @@ const styles = StyleSheet.create({
   },
   maintitle: {
     color: '#ffffff',
-    fontSize: 25,
+    fontSize: 23,
     fontFamily: 'OpenSauceSans-Bold',
   },
 });
