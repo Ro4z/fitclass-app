@@ -8,7 +8,7 @@ CaretupIcon.loadFont();
 
 const continousAttention = 199;
 
-const goalPercents = [60, 80, 50];
+const goalPercents = [60, 30, 70];
 const goalContents = [
   '[월간]3대 중량 250kg 달성',
   '[주간]주간 루틴 80% 진행',
@@ -42,9 +42,21 @@ function ProfileContents() {
         </View>
         <Text style={styles.datetext}>May 14 - Jun 13</Text>
 
-        <GoalGuage goalPercents={60} goalContents={goalContents[0]} index={0} />
-        <GoalGuage goalPercents={80} goalContents={goalContents[1]} index={1} />
-        <GoalGuage goalPercents={50} goalContents={goalContents[2]} index={2} />
+        <GoalGuage
+          goalPercents={goalPercents[0]}
+          goalContents={goalContents[0]}
+          index={0}
+        />
+        <GoalGuage
+          goalPercents={goalPercents[1]}
+          goalContents={goalContents[1]}
+          index={1}
+        />
+        <GoalGuage
+          goalPercents={goalPercents[2]}
+          goalContents={goalContents[2]}
+          index={2}
+        />
       </View>
     </ImageBackground>
   );
