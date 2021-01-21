@@ -15,7 +15,7 @@ function FitclassContentsMenu() {
         <TouchableOpacity onPress={null}>
           <ImageBackground
             style={styles.backgroundimage1}
-            source={require('@assets/image/pt_service_thumbnail.jpg')}
+            source={require('@assets/image/profile_thumbnail_1.jpg')}
             resizeMode="cover">
             <View style={styles.backgroundcover}>
               <Text
@@ -52,7 +52,7 @@ function FitclassContentsMenu() {
       <TouchableOpacity onPress={null}>
         <ImageBackground
           style={styles.backgroundimage2}
-          source={require('@assets/image/posture_service_thumbnail.png')}
+          source={require('@assets/image/pt_service_thumbnail.jpg')}
           resizeMode="cover">
           <View style={styles.backgroundcover}>
             <Text
