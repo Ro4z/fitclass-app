@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerNavigationOptions,
@@ -116,6 +116,25 @@ function DrawerNavigationContainer() {
           )}
           options={{
             title: 'ZoomStudy',
+            drawerIcon: ({focused}) => (
+              <VideoCameraIcon
+                name="video-camera"
+                style={[focused ? styles.profileimage : styles.profileimage2]}
+                size={30}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Community"
+          component={({navigation}) => (
+            <DefaultNavigationContainer
+              defaultscreen={'Community'}
+              navigation={navigation}
+            />
+          )}
+          options={{
+            title: 'Community',
             drawerIcon: ({focused}) => (
               <VideoCameraIcon
                 name="video-camera"

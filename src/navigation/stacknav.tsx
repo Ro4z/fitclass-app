@@ -10,6 +10,7 @@ import MainScreen from '@screens/MainScreen';
 import WorkoutStudyScreen from '@screens/WorkoutStudyScreen';
 import MyClassScreen from '@screens/MyClassScreen';
 import ZoomStudyScreen from '@screens/ZoomStudyScreen';
+import CommunityScreen from '@screens/CommunityScreen';
 
 const Stack = createStackNavigator();
 
@@ -56,6 +57,13 @@ function DefaultNavigationContainer({
         name="ZoomStudy"
         component={({navigation}) => (
           <ZoomStudyScreen navigation={navigation} />
+        )}
+        options={defaultOptions}
+      />
+      <Stack.Screen
+        name="Community"
+        component={({navigation}) => (
+          <CommunityScreen navigation={navigation} />
         )}
         options={defaultOptions}
       />
