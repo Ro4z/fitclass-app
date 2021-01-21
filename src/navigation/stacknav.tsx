@@ -29,7 +29,7 @@ function DefaultNavigationContainer({
   navigation,
 }: NavigationProps) {
   return (
-    <Stack.Navigator initialRouteName={'Profile'}>
+    <Stack.Navigator initialRouteName={defaultscreen}>
       <Stack.Screen
         name="Main"
         component={({navigation}) => <MainScreen navigation={navigation} />}
