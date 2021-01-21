@@ -9,10 +9,12 @@ import DefaultNavigationContainer from '@navigation/stacknav';
 import PeopleIcon from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
 import VideoCameraIcon from 'react-native-vector-icons/FontAwesome';
+import CommunityIcon from 'react-native-vector-icons/Entypo';
 
 PeopleIcon.loadFont();
 ProfileIcon.loadFont();
 VideoCameraIcon.loadFont();
+CommunityIcon.loadFont();
 
 const Drawer = createDrawerNavigator();
 
@@ -115,7 +117,7 @@ function DrawerNavigationContainer() {
             />
           )}
           options={{
-            title: 'ZoomStudy',
+            title: 'Fitness Room',
             drawerIcon: ({focused}) => (
               <VideoCameraIcon
                 name="video-camera"
@@ -136,8 +138,8 @@ function DrawerNavigationContainer() {
           options={{
             title: 'Community',
             drawerIcon: ({focused}) => (
-              <VideoCameraIcon
-                name="video-camera"
+              <CommunityIcon
+                name="chat"
                 style={[focused ? styles.profileimage : styles.profileimage2]}
                 size={30}
               />
