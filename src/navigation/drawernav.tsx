@@ -104,6 +104,25 @@ function DrawerNavigationContainer() {
             ),
           }}
         />
+        <Drawer.Screen
+          name="ZoomStudy"
+          component={({navigation}) => (
+            <DefaultNavigationContainer
+              defaultscreen={'ZoomStudy'}
+              navigation={navigation}
+            />
+          )}
+          options={{
+            title: 'ZoomStudy',
+            drawerIcon: ({focused}) => (
+              <PeopleIcon
+                name="person"
+                style={[focused ? styles.profileimage : styles.profileimage2]}
+                size={30}
+              />
+            ),
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );

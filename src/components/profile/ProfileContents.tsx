@@ -1,13 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, Image} from 'react-native';
 import {WIDTH} from '@constants/dimensions';
+import CaretupIcon from 'react-native-vector-icons/AntDesign';
+import GoalGuage from '@components/profile/GoalGuage';
+
+CaretupIcon.loadFont();
 
 const continousAttention = 199;
 
-const startWeight = 80;
-const goalWeight = 65;
-const nowWeight = 75;
-const colorWeight = (startWeight - nowWeight) / (startWeight - goalWeight);
+const goalPercents = [60, 80, 50];
+const goalContents = [
+  '[월간]3대 중량 250kg 달성',
+  '[주간]주간 루틴 80% 진행',
+  '[월간]월간 루틴 50% 진행',
+];
 
 function ProfileContents() {
   return (
@@ -35,34 +41,10 @@ function ProfileContents() {
           <Text style={styles.attendday}>일째 연속 출석</Text>
         </View>
         <Text style={styles.datetext}>May 14 - Jun 13</Text>
-        <View style={styles.graph}>
-          <View
-            style={{
-              flex: colorWeight,
-              backgroundColor: '#FF7D7D',
-              borderRadius: 5,
-            }}></View>
-          <View style={{flex: 1 - colorWeight}}></View>
-        </View>
-        <View style={{flexDirection: 'row', width: '90%'}}>
-          <Text style={styles.graphtext}>시작 체중</Text>
-          <View style={{flex: 1}} />
-          <Text style={styles.graphtext}>목표 체중</Text>
-        </View>
-        <View style={styles.graph}>
-          <View
-            style={{
-              flex: colorWeight,
-              backgroundColor: '#FFBC64',
-              borderRadius: 5,
-            }}></View>
-          <View style={{flex: 1 - colorWeight}}></View>
-        </View>
-        <View style={{flexDirection: 'row', width: '90%'}}>
-          <Text style={styles.graphtext}>시작 중량</Text>
-          <View style={{flex: 1}} />
-          <Text style={styles.graphtext}>목표 중량</Text>
-        </View>
+
+        <GoalGuage goalPercents={60} goalContents={goalContents[0]} index={0} />
+        <GoalGuage goalPercents={80} goalContents={goalContents[1]} index={1} />
+        <GoalGuage goalPercents={50} goalContents={goalContents[2]} index={2} />
       </View>
     </ImageBackground>
   );
@@ -73,7 +55,7 @@ export default ProfileContents;
 const styles = StyleSheet.create({
   backgroundimage: {
     width: WIDTH,
-    height: 330,
+    height: 420,
   },
   profileimage: {
     width: 130,
@@ -110,13 +92,5 @@ const styles = StyleSheet.create({
     color: '#6EEE1A',
     fontFamily: 'OpenSauceSans-Bold',
     fontSize: 22,
-  },
-  graph: {
-    height: 12,
-    width: '90%',
-    backgroundColor: '#ffffff',
-    borderRadius: 5,
-    marginTop: 8,
-    flexDirection: 'row',
   },
 });
