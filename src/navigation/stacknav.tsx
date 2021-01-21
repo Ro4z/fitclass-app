@@ -11,6 +11,7 @@ import WorkoutStudyScreen from '@screens/WorkoutStudyScreen';
 import MyClassScreen from '@screens/MyClassScreen';
 import ZoomStudyScreen from '@screens/ZoomStudyScreen';
 import WikiScreen from '@screens/WikiScreen';
+import CommunityScreen from '@screens/CommunityScreen';
 
 const Stack = createStackNavigator();
 
@@ -62,7 +63,14 @@ function DefaultNavigationContainer({
       />
       <Stack.Screen
         name="Wiki"
-        component={({navigation}) => <WikiScreen />}
+        component={({navigation}) => <WikiScreen navigation={navigation}/>} 
+        options={defaultOptions}
+        />
+      <Stack.Screen
+        name="Community"
+        component={({navigation}) => (
+          <CommunityScreen navigation={navigation} />
+        )}
         options={defaultOptions}
       />
     </Stack.Navigator>

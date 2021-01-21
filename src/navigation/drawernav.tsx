@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerNavigationOptions,
@@ -9,10 +9,12 @@ import DefaultNavigationContainer from '@navigation/stacknav';
 import PeopleIcon from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
 import VideoCameraIcon from 'react-native-vector-icons/FontAwesome';
+import CommunityIcon from 'react-native-vector-icons/Entypo';
 
 PeopleIcon.loadFont();
 ProfileIcon.loadFont();
 VideoCameraIcon.loadFont();
+CommunityIcon.loadFont();
 
 const Drawer = createDrawerNavigator();
 
@@ -115,10 +117,29 @@ function DrawerNavigationContainer() {
             />
           )}
           options={{
-            title: 'ZoomStudy',
+            title: 'Fitness Room',
             drawerIcon: ({focused}) => (
               <VideoCameraIcon
                 name="video-camera"
+                style={[focused ? styles.profileimage : styles.profileimage2]}
+                size={30}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Community"
+          component={({navigation}) => (
+            <DefaultNavigationContainer
+              defaultscreen={'Community'}
+              navigation={navigation}
+            />
+          )}
+          options={{
+            title: 'Community',
+            drawerIcon: ({focused}) => (
+              <CommunityIcon
+                name="chat"
                 style={[focused ? styles.profileimage : styles.profileimage2]}
                 size={30}
               />
