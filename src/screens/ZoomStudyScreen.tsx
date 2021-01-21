@@ -66,7 +66,7 @@ const ZoomStudyScreen = ({navigation}: {navigation?: any}) => {
 
   return (
     <SafeAreaView style={{backgroundColor: 'rgb(50,50,50)'}}>
-      <Header title="FITCLASS" />
+      <Header title="FITCLASS" navigation={navigation} />
       <View style={styles.container}>
         {hearts.map((heart, index) => {
           console.log(heart.id);
