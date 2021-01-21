@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {LogBox, StyleSheet} from 'react-native';
 import DrawerNavigationContainer from '@navigation/drawernav';
 
+LogBox.ignoreAllLogs();
 const App = () => {
   return (
     <>

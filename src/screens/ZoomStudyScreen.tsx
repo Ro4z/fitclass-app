@@ -10,10 +10,21 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Svg, {Path} from 'react-native-svg';
+import ArmIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import PlayIcon from 'react-native-vector-icons/Feather';
+import SendIcon from 'react-native-vector-icons/Feather';
+import SmileIcon from 'react-native-vector-icons/FontAwesome';
+import VolumeIcon from 'react-native-vector-icons/Feather';
+import ExitIcon from 'react-native-vector-icons/Ionicons';
+import CallIcon from 'react-native-vector-icons/Ionicons';
 
 import {BACKGROUND} from '@styles/color';
 import Dumbbell from '@assets/image/dumbbell.svg';
+import Header from '@components/structure/Header';
+
+ArmIcon.loadFont();
+PlayIcon.loadFont();
+SmileIcon.loadFont();
 
 const {height} = Dimensions.get('window');
 let heartCount = 0;
@@ -44,7 +55,7 @@ const ZoomStudyScreen = ({navigation}: {navigation?: any}) => {
 
   const addHeart = () => {
     heartCount++;
-    setHearts([...hearts, {id: heartCount, right: getRandomNumber(20, 150)}]);
+    setHearts([...hearts, {id: heartCount, right: getRandomNumber(10, 130)}]);
   };
 
   const removeHeart = (id: number) => {
@@ -55,6 +66,7 @@ const ZoomStudyScreen = ({navigation}: {navigation?: any}) => {
 
   return (
     <SafeAreaView style={{backgroundColor: 'rgb(50,50,50)'}}>
+      <Header title="FITCLASS" />
       <View style={styles.container}>
         {hearts.map((heart, index) => {
           console.log(heart.id);
@@ -67,17 +79,178 @@ const ZoomStudyScreen = ({navigation}: {navigation?: any}) => {
             />
           );
         })}
+
+        <View
+          style={{
+            borderWidth: 1,
+            width: '100%',
+            height: 100,
+            flexDirection: 'row',
+          }}>
+          <View style={{flex: 1, borderColor: 'gray', borderRightWidth: 0.5}} />
+          <View style={{flex: 1, borderColor: 'gray', borderRightWidth: 0.5}} />
+          <View style={{flex: 1, borderColor: 'gray', borderRightWidth: 0.5}} />
+          <View style={{flex: 1, borderColor: 'gray', borderRightWidth: 0.5}} />
+        </View>
+        <View
+          style={{
+            width: '100%',
+            height: 250,
+            backgroundColor: 'rgba(120,120,120,0.6)',
+          }}></View>
+        <View
+          style={{
+            width: '100%',
+            height: 80,
+            backgroundColor: 'rgb(30,30,30)',
+            paddingHorizontal: 15,
+            paddingVertical: 20,
+            justifyContent: 'space-between',
+          }}>
+          <Text
+            style={{fontFamily: 'NanumSquareEB', color: 'white', fontSize: 15}}>
+            [소확행] 소근육도 확실하게 행잉레그레이즈
+          </Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <PlayIcon
+              name="play"
+              style={{color: 'white', fontSize: 15, marginRight: 5}}
+            />
+            <Text
+              style={{
+                fontFamily: 'NanumSquareEB',
+                color: 'white',
+                fontSize: 15,
+              }}>
+              2,178
+            </Text>
+            <ArmIcon
+              name="arm-flex-outline"
+              style={{color: 'white', fontSize: 15, marginLeft: 10}}
+            />
+            <Text
+              style={{
+                fontFamily: 'NanumSquareEB',
+                color: 'white',
+                fontSize: 15,
+              }}>
+              1,768
+            </Text>
+          </View>
+        </View>
+
+        <View
+          style={{
+            width: '100%',
+            height: 200,
+            backgroundColor: 'rgb(45,45,45)',
+          }}
+        />
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            height: 50,
+            width: '100%',
+            backgroundColor: 'rgb(45,45,45)',
+            paddingHorizontal: 10,
+            paddingBottom: 7,
+          }}>
+          <View
+            style={{
+              width: '85%',
+              height: '100%',
+              backgroundColor: 'rgb(30,30,30)',
+              flexDirection: 'row',
+              alignItems: 'center',
+              paddingHorizontal: 10,
+              borderRadius: 7,
+            }}>
+            <SmileIcon
+              name="smile-o"
+              style={{color: 'rgb(150,150,150)', fontSize: 25}}
+            />
+            <Text
+              style={{
+                fontFamily: 'NanumSquareEB',
+                color: 'rgba(150,150,150, 0.7)',
+                fontSize: 14,
+                marginLeft: 10,
+              }}>
+              대화를 나눠 보세요.
+            </Text>
+          </View>
+          <SendIcon
+            name="send"
+            style={{color: 'rgb(150,150,150)', fontSize: 25, marginRight: 13}}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            paddingHorizontal: 20,
+            width: '100%',
+            height: 80,
+          }}>
+          <View
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 60,
+              backgroundColor: 'rgb(90,90,90)',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <ExitIcon
+              name="exit-outline"
+              style={{fontSize: 35, color: 'white', marginLeft: 5}}
+            />
+          </View>
+          <View
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 60,
+              backgroundColor: 'rgb(90,90,90)',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <VolumeIcon
+              name="volume-2"
+              style={{fontSize: 35, color: 'white'}}
+            />
+          </View>
+          <View
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 60,
+              backgroundColor: 'rgb(255,84,84)',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <CallIcon name="call" style={{fontSize: 35, color: 'white'}} />
+          </View>
+          <TouchableOpacity
+            onPress={() => addHeart()}
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 60,
+              backgroundColor: 'rgb(90,90,90)',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <ArmIcon
+              name="arm-flex-outline"
+              style={{color: 'white', fontSize: 35}}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-      <TouchableOpacity
-        style={{
-          width: 50,
-          height: 50,
-          backgroundColor: 'cyan',
-          position: 'absolute',
-          bottom: 100,
-          left: 40,
-        }}
-        onPress={() => addHeart()}></TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -134,19 +307,6 @@ const Heart = (props) => {
   return (
     <View>
       <Dumbbell width={size} height={size} fill={color} />
-      {/* <Svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 511.999 511.999"
-        fill="#FFF"
-        stroke="#FFF"
-        stroke-width={0.6}
-        {...props}>
-        <Path
-          fill="#FFF"
-          stroke="#FFF"
-          d="M503.058 157.279l-42.338-42.338 31.827-31.815a14.986 14.986 0 00.001-21.209l-42.612-42.612c-5.625-5.625-15.586-5.625-21.211 0L396.91 51.132 354.566 8.786c-11.715-11.715-30.71-11.715-42.426 0-11.717 11.715-11.717 30.71 0 42.426l148.491 148.493c11.717 11.715 30.712 11.715 42.427 0s11.715-30.71 0-42.426zM199.86 460.786L51.369 312.293c-11.717-11.715-30.71-11.715-42.427 0-11.715 11.717-11.715 30.712 0 42.427l42.345 42.345-31.765 31.752c-2.813 2.813-4.395 6.621-4.395 10.605s1.582 7.793 4.395 10.605l42.612 42.598c2.929 2.931 6.767 4.396 10.605 4.396s7.676-1.465 10.605-4.395l31.752-31.752 42.338 42.339c11.715 11.715 30.71 11.715 42.426 0 11.717-11.717 11.717-30.712 0-42.427zM269.713 178.492l-91.066 91.376 63.64 63.64 91.066-91.378zM460.632 242.131L269.713 51.212c-11.715-11.715-30.711-11.715-42.426 0-11.717 11.717-11.717 30.71 0 42.427l190.919 190.919c11.715 11.715 30.71 11.715 42.426 0 11.717-11.715 11.717-30.71 0-42.427zM284.714 418.36L93.794 227.44c-11.715-11.715-30.71-11.715-42.425 0-11.717 11.717-11.717 30.712 0 42.427l190.919 190.919c11.715 11.715 30.71 11.715 42.426 0 11.717-11.715 11.717-30.71 0-42.426z"
-        />
-      </Svg> */}
     </View>
   );
 };
@@ -158,12 +318,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: BACKGROUND,
-    paddingHorizontal: 15,
-    paddingTop: 10,
+    paddingHorizontal: 0,
+    paddingTop: 0,
   },
   heartContainer: {
     position: 'absolute',
     bottom: 30,
+    zIndex: 333,
     backgroundColor: 'transparent',
   },
   heart: {
