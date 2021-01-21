@@ -14,6 +14,8 @@ const goalContents = [
   '[주간]주간 루틴 80% 진행',
   '[월간]월간 루틴 50% 진행',
 ];
+const ranking = 37;
+const missionPercents = 63;
 
 function ProfileContents() {
   return (
@@ -42,6 +44,35 @@ function ProfileContents() {
         </View>
         <Text style={styles.datetext}>May 14 - Jun 13</Text>
 
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={styles.graph}>
+            <Text style={styles.rankingmission}>현재 랭킹 </Text>
+            <Text
+              style={[
+                styles.rankingmissionvalue,
+                {
+                  color: '#FFFFAC',
+                },
+              ]}>
+              {ranking}
+            </Text>
+            <Text style={styles.rankingmission}>위</Text>
+          </View>
+          <View style={styles.graph}>
+            <Text style={styles.rankingmission}>미션 달성 </Text>
+            <Text
+              style={[
+                styles.rankingmissionvalue,
+                {
+                  color: '#C9B7DA',
+                },
+              ]}>
+              {missionPercents}
+            </Text>
+            <Text style={styles.rankingmission}>%</Text>
+          </View>
+        </View>
+
         <GoalGuage
           goalPercents={goalPercents[0]}
           goalContents={goalContents[0]}
@@ -67,7 +98,7 @@ export default ProfileContents;
 const styles = StyleSheet.create({
   backgroundimage: {
     width: WIDTH,
-    height: 420,
+    height: 480,
   },
   profileimage: {
     width: 130,
@@ -104,5 +135,29 @@ const styles = StyleSheet.create({
     color: '#6EEE1A',
     fontFamily: 'OpenSauceSans-Bold',
     fontSize: 22,
+  },
+  graph: {
+    height: 45,
+    width: 150,
+    backgroundColor: '#D44683',
+    borderRadius: 30,
+    marginTop: 8,
+    marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginHorizontal: 15,
+  },
+  rankingmission: {
+    color: '#fff',
+    fontFamily: 'OpenSauceSans-Bold',
+    fontSize: 19,
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  rankingmissionvalue: {
+    fontFamily: 'OpenSauceSans-Bold',
+    fontSize: 21,
+    textAlign: 'center',
+    marginTop: 8,
   },
 });
