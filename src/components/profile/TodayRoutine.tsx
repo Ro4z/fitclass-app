@@ -5,39 +5,27 @@ import RoutineElement from '@components/profile/RoutineElement';
 const data = [
   {
     elementstatus: 0,
-    title: '플랫 벤치프레스 n회',
+    title: '플랫 벤치프레스 10회',
   },
   {
     elementstatus: 0,
-    title: '바벨 로우 n회',
+    title: '바벨 로우 10회',
   },
   {
     elementstatus: 0,
-    title: '덤벨 벤치프레스 n회',
+    title: '덤벨 벤치프레스 10회',
   },
   {
     elementstatus: 1,
-    title: '원암 덤벨 로우 n회',
+    title: '원암 덤벨 로우 10회',
   },
   {
     elementstatus: 2,
-    title: '인클라인 벤치 프레스 n회',
+    title: '인클라인 벤치 프레스 10회',
   },
   {
     elementstatus: 2,
-    title: '렛 폴 다운 n회',
-  },
-  {
-    elementstatus: 2,
-    title: '렛 폴 다운 n회',
-  },
-  {
-    elementstatus: 2,
-    title: '렛 폴 다운 n회',
-  },
-  {
-    elementstatus: 2,
-    title: '렛 폴 다운 n회',
+    title: '렛 폴 다운 10회',
   },
 ];
 

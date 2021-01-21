@@ -8,9 +8,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import DefaultNavigationContainer from '@navigation/stacknav';
 import PeopleIcon from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
+import VideoCameraIcon from 'react-native-vector-icons/FontAwesome';
 
 PeopleIcon.loadFont();
 ProfileIcon.loadFont();
+VideoCameraIcon.loadFont();
 
 const Drawer = createDrawerNavigator();
 
@@ -37,7 +39,7 @@ function DrawerNavigationContainer() {
             />
           )}
           options={{
-            title: 'Main',
+            title: 'Home',
             drawerIcon: ({focused}) => (
               <PeopleIcon
                 name="home"
@@ -75,7 +77,7 @@ function DrawerNavigationContainer() {
             />
           )}
           options={{
-            title: 'WorkoutStudy',
+            title: 'Class',
             drawerIcon: ({focused}) => (
               <PeopleIcon
                 name="people"
@@ -98,6 +100,25 @@ function DrawerNavigationContainer() {
             drawerIcon: ({focused}) => (
               <PeopleIcon
                 name="person"
+                style={[focused ? styles.profileimage : styles.profileimage2]}
+                size={30}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="ZoomStudy"
+          component={({navigation}) => (
+            <DefaultNavigationContainer
+              defaultscreen={'ZoomStudy'}
+              navigation={navigation}
+            />
+          )}
+          options={{
+            title: 'ZoomStudy',
+            drawerIcon: ({focused}) => (
+              <VideoCameraIcon
+                name="video-camera"
                 style={[focused ? styles.profileimage : styles.profileimage2]}
                 size={30}
               />

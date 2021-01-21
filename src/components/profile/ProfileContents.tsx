@@ -1,13 +1,21 @@
 import React from 'react';
 import {StyleSheet, Text, View, ImageBackground, Image} from 'react-native';
 import {WIDTH} from '@constants/dimensions';
+import CaretupIcon from 'react-native-vector-icons/AntDesign';
+import GoalGuage from '@components/profile/GoalGuage';
+
+CaretupIcon.loadFont();
 
 const continousAttention = 199;
 
-const startWeight = 80;
-const goalWeight = 65;
-const nowWeight = 75;
-const colorWeight = (startWeight - nowWeight) / (startWeight - goalWeight);
+const goalPercents = [60, 30, 70];
+const goalContents = [
+  '[월간]3대 중량 250kg 달성',
+  '[주간]주간 루틴 80% 진행',
+  '[월간]월간 루틴 50% 진행',
+];
+const ranking = 37;
+const missionPercents = 63;
 
 function ProfileContents() {
   return (
@@ -35,34 +43,51 @@ function ProfileContents() {
           <Text style={styles.attendday}>일째 연속 출석</Text>
         </View>
         <Text style={styles.datetext}>May 14 - Jun 13</Text>
-        <View style={styles.graph}>
-          <View
-            style={{
-              flex: colorWeight,
-              backgroundColor: '#FF7D7D',
-              borderRadius: 5,
-            }}></View>
-          <View style={{flex: 1 - colorWeight}}></View>
+
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={styles.graph}>
+            <Text style={styles.rankingmission}>현재 랭킹 </Text>
+            <Text
+              style={[
+                styles.rankingmissionvalue,
+                {
+                  color: '#FFFFAC',
+                },
+              ]}>
+              {ranking}
+            </Text>
+            <Text style={styles.rankingmission}>위</Text>
+          </View>
+          <View style={styles.graph}>
+            <Text style={styles.rankingmission}>미션 달성 </Text>
+            <Text
+              style={[
+                styles.rankingmissionvalue,
+                {
+                  color: '#C9B7DA',
+                },
+              ]}>
+              {missionPercents}
+            </Text>
+            <Text style={styles.rankingmission}>%</Text>
+          </View>
         </View>
-        <View style={{flexDirection: 'row', width: '90%'}}>
-          <Text style={styles.graphtext}>시작 체중</Text>
-          <View style={{flex: 1}} />
-          <Text style={styles.graphtext}>목표 체중</Text>
-        </View>
-        <View style={styles.graph}>
-          <View
-            style={{
-              flex: colorWeight,
-              backgroundColor: '#FFBC64',
-              borderRadius: 5,
-            }}></View>
-          <View style={{flex: 1 - colorWeight}}></View>
-        </View>
-        <View style={{flexDirection: 'row', width: '90%'}}>
-          <Text style={styles.graphtext}>시작 중량</Text>
-          <View style={{flex: 1}} />
-          <Text style={styles.graphtext}>목표 중량</Text>
-        </View>
+
+        <GoalGuage
+          goalPercents={goalPercents[0]}
+          goalContents={goalContents[0]}
+          index={0}
+        />
+        <GoalGuage
+          goalPercents={goalPercents[1]}
+          goalContents={goalContents[1]}
+          index={1}
+        />
+        <GoalGuage
+          goalPercents={goalPercents[2]}
+          goalContents={goalContents[2]}
+          index={2}
+        />
       </View>
     </ImageBackground>
   );
@@ -73,7 +98,7 @@ export default ProfileContents;
 const styles = StyleSheet.create({
   backgroundimage: {
     width: WIDTH,
-    height: 330,
+    height: 480,
   },
   profileimage: {
     width: 130,
@@ -112,11 +137,27 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   graph: {
-    height: 12,
-    width: '90%',
-    backgroundColor: '#ffffff',
-    borderRadius: 5,
+    height: 45,
+    width: 150,
+    backgroundColor: '#D44683',
+    borderRadius: 30,
     marginTop: 8,
+    marginBottom: 10,
     flexDirection: 'row',
+    justifyContent: 'center',
+    marginHorizontal: 15,
+  },
+  rankingmission: {
+    color: '#fff',
+    fontFamily: 'OpenSauceSans-Bold',
+    fontSize: 19,
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  rankingmissionvalue: {
+    fontFamily: 'OpenSauceSans-Bold',
+    fontSize: 21,
+    textAlign: 'center',
+    marginTop: 8,
   },
 });

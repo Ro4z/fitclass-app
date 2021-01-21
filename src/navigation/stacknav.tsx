@@ -25,11 +25,11 @@ type NavigationProps = {
 };
 
 function DefaultNavigationContainer({
-  defaultscreen = 'ZoomStudy',
+  defaultscreen,
   navigation,
 }: NavigationProps) {
   return (
-    <Stack.Navigator initialRouteName={'ZoomStudy'}>
+    <Stack.Navigator initialRouteName={defaultscreen}>
       <Stack.Screen
         name="Main"
         component={({navigation}) => <MainScreen navigation={navigation} />}
